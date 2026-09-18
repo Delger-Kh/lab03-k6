@@ -69,7 +69,17 @@
 
 ## 3. k6 threshold PASS үр дүн
 
-k6 v2.2.0+dirty (commit/00a9a1b7f5-dirty, go1.26.5, linux/amd64)
+
+---
+
+## 3. k6 threshold PASS үр дүн
+
+20 VU, 1 минутын турш ажиллуулсан. Бүх дөрвөн threshold PASS боллоо (бүтэн гаралт `results/pass.txt`):
+
+- Performance (`/cart/add`): p(95)=8.64мс < 200мс ✓
+- Reliability (`/pay`): error rate=5.30% (49/924) < 8% ✓
+- Availability (`checks`): rate=97.69% (2708/2772) > 90% ✓
+- Report (`/report`, нэмэлт): p(95)=392.32мс < 450мс ✓
 
 ## 4. Chaos туршилт (Availability)
 
