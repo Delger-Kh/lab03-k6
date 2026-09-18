@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export const options = {
-  vus: 20, duration: '1m',
+  vus: 20, duration: '2m',
   thresholds: {
     'http_req_duration{name:cart}': ['p(95)<200'], // Performance SLO
     'http_req_failed{name:pay}': ['rate<0.08'],    // Reliability SLO
@@ -12,10 +12,10 @@ export const options = {
 };
 
 export default function () {
-  const base = 'http://127.0.0.1:3000';
+  const base = 'http://localhost:3000';
   const c = http.post(`${base}/cart/add`, null, { tags: { name: 'cart' } });
   const r = http.get(`${base}/report`, { tags: { name: 'report' } });
-  const p = http.post(`${base}/pay`, null, { tags: { name: 'pay' } });
+  const p = http.post(`${base}/pay`, null, {  tags: { name: 'pay' } });
   check(c, { 'cart 200': (x) => x.status === 200 });
   check(r, { 'report 200': (x) => x.status === 200 });
   check(p, { 'pay 200': (x) => x.status === 200 });
