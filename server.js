@@ -17,4 +17,4 @@ app.post('/pay', (req, res) => {
   res.json({ paid: true });
 });
 
-app.listen(3000, () => console.log('API: http://localhost:3000'));
+app.listen(3000, '0.0.0.0', () => console.log('API: http://localhost:3000'));
