@@ -104,7 +104,17 @@
 
 ## 5. Зориуд эвдсэн threshold (FAIL)
 
-*(энэ хэсгийг Алхам 6-г хийсний дараа бөглөнө)*
+---
+
+## 5. Зориуд эвдсэн threshold (FAIL)
+
+`/report`-ын threshold-ыг `p(95)<450`-аас `p(95)<100`-д өөрчилж, тусдаа `slo-test-fail.js` файлд хадгалсан (бусад threshold-ууд хэвээр). Сервер 200-400мс sleep хийдэг тул 100мс-ийн threshold ямар ч машин дээр найдвартай FAIL болно.
+
+**Үр дүн (бүтэн гаралт `results/fail.txt`):**
+- `http_req_duration{name:report}`: p(95)=393.07мс, `p(95)<100` threshold-ыг **эвдсэн (FAIL)**
+- k6-ийн exit code: **99** (0 биш) — CI pipeline энэ exit code-оор build-ийг зогсоодог
+
+Бусад гурван threshold (cart, pay, checks) хэвээрээ PASS хэвээр байсан — учир нь зөвхөн report-ын threshold-ыг өөрчилсөн.
 
 ---
 
