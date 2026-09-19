@@ -101,7 +101,7 @@ k6 v0.54.0 (commit/baba871c8a, go1.23.1, linux/amd64)
 `/report`-ын threshold-ыг `p(95)<450`-аас `p(95)<100`-д өөрчилж, тусдаа `slo-test-fail.js` файлд хадгалсан (бусад threshold-ууд хэвээр). Сервер 200-400мс sleep хийдэг тул 100мс-ийн threshold ямар ч машин дээр найдвартай FAIL болно.
 
 **Үр дүн (бүтэн гаралт `results/fail.txt`):**
-- `http_req_duration{name:report}`: p(95)=393.07мс, `p(95)<100` threshold-ыг **эвдсэн (FAIL)**
+- `http_req_duration{name:report}`: p(95)=394.62мс, `p(95)<100` threshold-ыг **эвдсэн (FAIL)**
 - k6-ийн exit code: **99** (0 биш) — CI pipeline энэ exit code-оор build-ийг зогсоодог
 
 Бусад гурван threshold (cart, pay, checks) хэвээрээ PASS хэвээр байсан — учир нь зөвхөн report-ын threshold-ыг өөрчилсөн.
